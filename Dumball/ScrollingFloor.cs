@@ -15,7 +15,7 @@ namespace Dumball
 
         private float textureWidth;
 
-        public ScrollingFloor(Texture2D texture, int screenHeight)
+        public ScrollingFloor(Texture2D texture)
         {
             tiles = new List<Floor>();
             textureWidth = (float)(texture.Width * 1.5);
@@ -24,7 +24,7 @@ namespace Dumball
             {
                 tiles.Add(new Floor(texture)
                 {
-                    Position = new Vector2((float)(i * textureWidth - Math.Min(i, i + 1)), (float)(screenHeight - (texture.Height * 1.5)))
+                    Position = new Vector2((float)(i * textureWidth - Math.Min(i, i + 1)), (float)(Constants.GAME_HEIGHT - (texture.Height * 1.5)))
                 });
             }
         }

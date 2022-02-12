@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 using Dumball.Collisions;
 
@@ -30,6 +31,9 @@ namespace Dumball
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = false;
+            _graphics.PreferredBackBufferWidth = Constants.GAME_WIDTH;
+            _graphics.PreferredBackBufferHeight = Constants.GAME_HEIGHT;
+            _graphics.ApplyChanges();
         }
 
         protected override void Initialize()
@@ -44,9 +48,9 @@ namespace Dumball
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             background = Content.Load<Texture2D>("BGG");
-            floor = new ScrollingFloor(Content.Load<Texture2D>("GroundTile"), _graphics.PreferredBackBufferHeight + 1);
-            floor.Activated = true;
-            dumball = new Ball(Content.Load<Texture2D>("Dumball"), new Vector2(30, _graphics.PreferredBackBufferHeight - 135));
+            floor = new ScrollingFloor(Content.Load<Texture2D>("GroundTile"));
+            dumball = new Ball(Content.Load<Texture2D>("Dumball"), Content.Load<Texture2D>("DustCloud"),
+                new Vector2(20, Constants.GAME_HEIGHT - 135), Content.Load<SoundEffect>("Sfx/Jump"), Content.Load<SoundEffect>("Sfx/Powerup"));
             backgroundMusic = Content.Load<Song>("Music/BALLGAMETITLE");
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(backgroundMusic);
