@@ -145,6 +145,7 @@ namespace Dumball
 
             if (menuActive)
             {
+                scrollingSpeed = 150f;
                 gameActive = true;
                 dumball.Active = true;
                 dumball.GameOver = false;
