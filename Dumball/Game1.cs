@@ -147,6 +147,7 @@ namespace Dumball
             {
                 gameActive = true;
                 dumball.Active = true;
+                dumball.GameOver = false;
                 menuActive = false;
             }
 

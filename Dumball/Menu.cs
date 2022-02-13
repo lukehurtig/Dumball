@@ -14,6 +14,8 @@ namespace Dumball
         private readonly Texture2D title;
         private SpriteFont start;
         private SpriteFont exit;
+        private Color startColor;
+        private Color exitColor;
         private Vector2 position;
         private readonly float yPosition;
         private bool menuSelection;
@@ -57,6 +59,12 @@ namespace Dumball
                 if (gamePadState.ThumbSticks.Left.Y != 0 && priorGamePadState.ThumbSticks.Left.Y == 0) menuSelection = !menuSelection;
                 else if (keyboardState.IsKeyDown(Keys.Up) && priorKeyboardState.IsKeyUp(Keys.Up)) menuSelection = !menuSelection;
                 else if (keyboardState.IsKeyDown(Keys.Down) && priorKeyboardState.IsKeyUp(Keys.Down)) menuSelection = !menuSelection;
+
+                if (menuSelection)
+                {
+                    startColor = Color.Red;
+                    exitColor = Color.White;
+                }
 
                 if ((gamePadState.IsButtonDown(Buttons.A) || keyboardState.IsKeyDown(Keys.Enter)) && menuSelection) Active = false;
                 else if ((gamePadState.IsButtonDown(Buttons.A) || keyboardState.IsKeyDown(Keys.Enter)) && !menuSelection) Exit = true;
