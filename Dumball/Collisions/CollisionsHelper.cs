@@ -40,30 +40,11 @@ namespace Dumball.Collisions
         /// <returns>returns true if the two are colliding</returns>
         public static bool Collides(BoundingCircle c, BoundingRectangle r)
         {
-            float nearestX = MathHelper.Clamp(c.Center.X, r.Left, r.Right);
-            float nearestY = MathHelper.Clamp(c.Center.Y, r.Top, r.Bottom);
+            float nearestX = MathHelper.Clamp(c.Center.X, r.X, r.X + r.Width);
+            float nearestY = MathHelper.Clamp(c.Center.Y, r.Y, r.Y + r.Height);
             return Math.Pow(c.Radius, 2) >=
                 Math.Pow(c.Center.X - nearestX, 2) +
                 Math.Pow(c.Center.Y - nearestY, 2);
         }
-
-        public static bool Collides(BoundingRectangle r, BoundingCircle c) => Collides(c, r);
-
-        /// <summary>
-        /// Detects a collision between a rectangle and a circle
-        /// </summary>
-        /// <param name="c">Bounding circle</param>
-        /// <param name="r">Bounding Rectangle</param>
-        /// <returns>returns true if the two are colliding</returns>
-        public static bool Collides(BoundingCircle c, Rectangle r)
-        {
-            float nearestX = MathHelper.Clamp(c.Center.X, r.Left, r.Right);
-            float nearestY = MathHelper.Clamp(c.Center.Y, r.Top, r.Bottom);
-            return Math.Pow(c.Radius, 2) >=
-                Math.Pow(c.Center.X - nearestX, 2) +
-                Math.Pow(c.Center.Y - nearestY, 2);
-        }
-
-        public static bool Collides(Rectangle r, BoundingCircle c) => Collides(c, r);
     }
 }

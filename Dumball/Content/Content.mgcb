@@ -49,7 +49,7 @@
 /processorParam:TextureFormat=Color
 /build:BGG.png
 
-#begin BlueBall.png
+#begin circle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,7 +59,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:BlueBall.png
+/build:circle.png
 
 #begin DoubleLandTile.png
 /importer:TextureImporter
@@ -176,6 +176,18 @@
 /processorParam:TextureFormat=Compressed
 /build:Pixel.spritefont
 
+#begin Rectangle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Rectangle.png
+
 #begin Sfx/Death.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -199,6 +211,18 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sfx/Powerup.wav
+
+#begin SpawningObjects/BlueBall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:SpawningObjects/BlueBall.png
 
 #begin SpawningObjects/Bowling_Pin.png
 /importer:TextureImporter

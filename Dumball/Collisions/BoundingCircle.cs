@@ -45,10 +45,5 @@ namespace Dumball.Collisions
         {
             return CollisionHelper.Collides(this, other);
         }
-
-        public bool CollidesWith(Rectangle other)
-        {
-            return CollisionHelper.Collides(this, other);
-        }
     }
 }
