@@ -17,8 +17,6 @@ namespace Dumball
         private Song gameplayMusic;
         private bool menuActive;
         private bool gameActive;
-        private bool menuItemSelect;
-        private bool pinCollide;
         private bool hazardCollide;
         private float scrollingSpeed = 150f;
         private double randomSpawnTime = 0;
@@ -26,8 +24,8 @@ namespace Dumball
         private Texture2D title;
         private SpriteFont start;
         private SpriteFont exit;
-        private SpriteFont instructions;
-        private SpriteFont score;
+        //private SpriteFont instructions;
+        //private SpriteFont score;
         private Texture2D ball;
         private Texture2D rectangle;
         private Texture2D background;
@@ -97,13 +95,14 @@ namespace Dumball
 
             floor = new ScrollingFloor(Content.Load<Texture2D>("GroundTile"), scrollingSpeed);
 
-            floor.Activated = true;
             dumball.Active = true;
+            floor.Activated = true;
+            gameActive = true;
 
             titleMusic = Content.Load<Song>("Music/BALLGAMETITLE");
             gameplayMusic = Content.Load<Song>("Music/BALLGAMEPLAY");
             MediaPlayer.IsRepeating = true;
-            MediaPlayer.Play(gameplayMusic);
+            MediaPlayer.Play(titleMusic);
         }
 
         public void RandomizeSpawn()
@@ -146,7 +145,9 @@ namespace Dumball
 
             if (menuActive)
             {
-
+                gameActive = true;
+                dumball.Active = true;
+                menuActive = false;
             }
 
             else if (gameActive)
@@ -229,6 +230,7 @@ namespace Dumball
 
                     gameActive = false;
                     menuActive = true;
+                    MediaPlayer.Play(titleMusic);
                 }
             }
             
